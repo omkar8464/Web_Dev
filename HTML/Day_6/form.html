@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="form1.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter username">
+                <div class="error-message" id="usernameError">Username must be at least 3 characters long.</div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter Email">
+                <div class="error-message" id="emailError">Please enter a valid email address.</div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+                <div class="error-message" id="passwordError">Password must be at least 6 characters long.</div>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Enter your password again">
+                <div class="error-message" id="confirmPasswordError">Passwords do not match.</div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+    </div>
+    
+
+    <script>
+        const form = document.getElementById('registrationForm');
+        const usernameInput = document.getElementById('username');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+    
+        const usernameError = document.getElementById('usernameError');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+        const confirmPasswordError = document.getElementById('confirmPasswordError');
+    
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+            validateForm();
+        });
+    
+        function validateForm() {
+            validateUsername();
+            validateEmail();
+            validatePassword();
+            validateConfirmPassword();
+        }
+    
+        function validateUsername() {
+            const username = usernameInput.value.trim();
+            if (username.length >= 3) {
+                setValid(usernameInput, usernameError);
+            } else {
+                setInvalid(usernameInput, usernameError);
+            }
+        }
+    
+        function validateEmail() {
+            const email = emailInput.value.trim();
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (emailPattern.test(email)) {
+                setValid(emailInput, emailError);
+            } else {
+                setInvalid(emailInput, emailError);
+            }
+        }
+    
+        function validatePassword() {
+            const password = passwordInput.value.trim();
+            if (password.length >= 6) {
+                setValid(passwordInput, passwordError);
+            } else {
+                setInvalid(passwordInput, passwordError);
+            }
+        }
+    
+        function validateConfirmPassword() {
+            const password = passwordInput.value.trim();
+            const confirmPassword = confirmPasswordInput.value.trim();
+            if (password === confirmPassword && confirmPassword !== "") {
+                setValid(confirmPasswordInput, confirmPasswordError);
+            } else {
+                setInvalid(confirmPasswordInput, confirmPasswordError);
+            }
+        }
+    
+        function setValid(input, errorElement) {
+            input.classList.remove('invalid');
+            input.classList.add('valid');
+            errorElement.style.display = 'none';
+        }
+    
+        function setInvalid(input, errorElement) {
+            input.classList.remove('valid');
+            input.classList.add('invalid');
+            errorElement.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

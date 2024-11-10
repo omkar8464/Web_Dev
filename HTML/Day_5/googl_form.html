@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<link rel="stylesheet" href="form.css">
+<body>
+    <h2>Contact Us</h2>
+    <form action="/submit-form" method="POST">
+        <!-- Text input for name -->
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="fname" required>
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" required>
+        <br><br>
+        <!-- Phone input -->
+        <label for="phone no">Contact:</label><br>
+        <input type="tel" id="phone no" name="phone no" placeholder="123-456-789" pattern="[0-9]" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"><br>
+
+        <!-- Email input -->
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" placeholder="abc-def-ghi" pattern="[a-z]" pattern="[a-z]{_}-[a-z]{_}-[a-z]{_}">
+        <br><br>
+        
+        <!-- /select for branch -->
+        <label for="cars">Choose your branch</label><br>
+        <select id="branch" name="branch" size="2" multiple>
+        <option value="CSE">CSE</option>
+        <option value="AIML">AIML</option>
+        <option value="DS">DS</option>
+        <option value="IOT">IOT</option>
+        <option value="IT">IT</option>
+        <option value="AI">AI</option>
+        <option value="CS">CS</option>
+        <option value="ME">ME</option>
+        </select><BR>
+
+        <!-- Radio button for section -->
+        <label>Section:</label>
+        <input type="radio" id="a" name="section" value="a">
+        <label for="section a">A</label>
+        <input type="radio" id="a" name="section" value="a">
+        <label for="section b">B</label>
+        <br><br>
+
+        <!-- Radio buttons for gender -->
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+        <br><br>
+
+        <!-- Checkbox for Feedback Form -->
+        <input type="button" id="feed" name="feed">
+        <label for="fb">Feedback Form:</label><br>
+        <br>
+
+        <!-- Textarea for message -->
+        
+        <textarea id="message" name="message" rows="4" cols="50"></textarea>
+        <br><br>
+
+        <!-- Submit button -->
+        <input type="submit" value="Submit">
+    </form>
+    <form>
+        <fieldset>
+            <legend>Login Form</legend>
+            <label for="uname">User Name</label><br>
+            <input type="text" id="uname" name="uname"><br>
+            <label for="password">Password</label><br>
+            <input type="password" id="pwd" name="pwd"><br><br>
+
+            <input type="submit" name="login" id="Login"><br>
+        </fieldset>
+    </form>
+</body>
+</html>
