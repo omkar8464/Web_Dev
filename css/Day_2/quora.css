@@ -1,0 +1,82 @@
+/*universal selector*/
+*{
+    font-family: 'Courier New';
+}
+
+/*element selector*/
+h1 ,h3{
+    color:#b92b27;
+}
+
+/*id selector*/
+#login{
+    background-color: wheat;
+}
+
+/*class selector*/
+.a{
+    background-color: green;
+    color: aliceblue;
+}
+
+/*Adacent sibling combinator*/
+p+h3{
+    text-decoration: underline;
+}
+
+.a+button{
+    background-color: cornflowerblue;
+}
+
+/*Child combinator*/
+div > input{
+    background-color: darksalmon;
+}
+
+/*Attribute selector*/
+input[type="text"]{
+    color: red;
+}
+
+input[type="password"]{
+    color: green;
+}
+
+input[type]{
+    color: ghostwhite;
+}
+
+/*Pseduo class */
+/*hover------------------log aur signin color change nhi ho because of specificity----based on priority  */
+button:hover{
+    background-color: black;
+    color: white;
+}
+
+button:active{
+    background-color: hotpink;
+    color: black;
+}
+
+p:active{
+    font-weight: bold;
+    color: goldenrod;
+}
+
+input[type="radio"]:checked + label{
+    color: red;
+    font-weight: bold;
+}
+
+div:nth-of-type(2){
+    background-color: darkkhaki;
+}
+
+/* ::first letter*/
+h1::first-letter {
+    color: green;
+}
+
+p::selection {
+    background-color: chartreuse;
+}
